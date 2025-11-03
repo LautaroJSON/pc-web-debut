@@ -1,0 +1,27 @@
+:root {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+
+  color-scheme: light dark;
+
+  --color-lightest: #f3e0fe;
+  --color-header-light: #e8e5ff;
+  --color-medium-light: #ddcaf7;
+  --color-medium: #9987b5;
+  --color-background: #fbf9ff;
+  --color-border: #6d5c8e;
+  --color-font-header: #6d5c8e;
+
+  color: #786897;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0px;
+}
