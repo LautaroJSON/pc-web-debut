@@ -6,18 +6,10 @@ Una web app que simula un escritorio de PC, desarrollada como trabajo para la pr
 
 ## 🧩 Tecnologías utilizadas
 
-- TypeScript
-- CSS / HTML
+- React + TypeScript
+- CSS / HTML / styled-componentes
 - Vite (bundler rápido)
 - ESLint (configuración de linting)
 - Principales lenguajes: TypeScript, CSS, HTML. :contentReference[oaicite:3]{index=3}
 
 ---
-
-## 🚀 Cómo instalar y ejecutar localmente
-
-1. Clona el repositorio
-   ```bash
-   git clone https://github.com/LautaroJSON/pc‑web‑debut.git
-   cd pc‑web‑debut
-   ```
