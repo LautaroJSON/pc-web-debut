@@ -1,13 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { useState, useRef } from "react";
-import {
-  Window,
-  Header,
-  Content,
-  HeaderTabs,
-  Tab,
-  HeaderButton,
-} from "./styles";
+import { Window, Content, HeaderTabs, Tab, HeaderButton } from "./styles";
 
 const _TABS_: Array<{ name: string }> = [
   { name: "Perfil - Z-03" },
