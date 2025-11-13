@@ -123,7 +123,7 @@ function Home() {
   return (
     <div className={styles.home}>
       <video autoPlay loop muted className={styles.backgroundVideo}>
-        <source src="src/assets/background.mp4" type="video/mp4" />
+        <source src="/background.mp4" type="video/mp4" />
       </video>
       <Escritorio icons={_ICONS_AND_COORDS} />
       <Bar />
