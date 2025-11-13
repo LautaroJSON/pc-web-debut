@@ -5,11 +5,11 @@ import type { TSvgName } from "./Svg";
 import SvgComponente from "./Svg";
 
 interface IIcon {
-  title: string;
+  title?: string;
   icon: TSvgName;
 }
 
-const Icon = ({ title, icon }: IIcon) => {
+const Icon = ({ title = "Lorem Ipsum", icon }: IIcon) => {
   const [open, setOpen] = useState(false);
 
   const handleDoubleClick = () => {

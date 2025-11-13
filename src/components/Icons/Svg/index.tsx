@@ -5,6 +5,12 @@ import corazon from "../../../assets/icons/corazon.svg";
 import windows from "../../../assets/icons/windows.svg";
 import papelera from "../../../assets/icons/papelera.svg";
 import decoracion1 from "../../../assets/icons/decoracion1.svg";
+import ai from "../../../assets/icons/ai.svg";
+import ps from "../../../assets/icons/ps.svg";
+import pr from "../../../assets/icons/pr.svg";
+import winrawr from "../../../assets/icons/winrawr.svg";
+import zteam from "../../../assets/icons/zteam.svg";
+import discawrd from "../../../assets/icons/discawrd.svg";
 
 export type TSvgName =
   | "carpeta"
@@ -13,6 +19,12 @@ export type TSvgName =
   | "gugul"
   | "imagen"
   | "papelera"
+  | "ai"
+  | "ps"
+  | "pr"
+  | "winrawr"
+  | "zteam"
+  | "discawrd"
   | "windows";
 
 const icons: Record<TSvgName, string> = {
@@ -22,6 +34,12 @@ const icons: Record<TSvgName, string> = {
   gugul,
   imagen,
   papelera,
+  ai,
+  ps,
+  pr,
+  winrawr,
+  zteam,
+  discawrd,
   windows,
 };
 
