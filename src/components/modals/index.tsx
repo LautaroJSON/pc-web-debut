@@ -1,6 +1,15 @@
 import ReactDOM from "react-dom";
 import React, { useState, useRef } from "react";
-import { Window, Content, HeaderTabs, Tab, HeaderButton } from "./styles";
+import {
+  Content,
+  HeaderTabContainer,
+  Tab,
+  HeaderButton,
+  ModalStyled,
+  ModalContainer,
+  Header,
+} from "./styles";
+import SvgComponente from "../Icons/Svg";
 
 const _TABS_: Array<{ name: string }> = [
   { name: "Perfil - Z-03" },
@@ -65,31 +74,36 @@ const Modal = ({ title, onClose }: ModalProps) => {
   };
 
   return ReactDOM.createPortal(
-    <Window ref={modalRef} positionY={position.y} positionX={position.x}>
-      <HeaderTabs onMouseDown={handleMouseDown}>
-        <div className="header-tab-list">
-          {_TABS_.map((t) => (
-            <Tab>
-              {t.name != "" && <div className="text-tab">{t.name}</div>}
-            </Tab>
-          ))}
-        </div>
-        <div className="header-tab-buttons-list">
-          <HeaderButton>_</HeaderButton>
-          <HeaderButton>▢</HeaderButton>
-          <HeaderButton onClick={onClose}>X</HeaderButton>
-        </div>
-        {/* <span>{title}</span>
-        <CloseBtn onClick={onClose}>✕</CloseBtn> */}
-      </HeaderTabs>
-      {/* <Header onMouseDown={handleMouseDown}> */}
-      {/* <span>{title}</span>
-        <CloseBtn onClick={onClose}>✕</CloseBtn> */}
-      {/* </Header> */}
-      <Content>
-        <p>Contenido de {title}</p>
-      </Content>
-    </Window>,
+    <ModalStyled positionY={position.y} positionX={position.x}>
+      <ModalContainer ref={modalRef}>
+        <Header>
+          <HeaderTabContainer onMouseDown={handleMouseDown}>
+            <div className="header-tab-list">
+              {_TABS_.map((t) => (
+                <Tab>
+                  {t.name != "" && <div className="text-tab">{t.name}</div>}
+                </Tab>
+              ))}
+            </div>
+            <div className="header-tab-buttons-list">
+              <HeaderButton>_</HeaderButton>
+              <HeaderButton>▢</HeaderButton>
+              <HeaderButton onClick={onClose}>X</HeaderButton>
+            </div>
+          </HeaderTabContainer>
+          <SvgComponente
+            svgName="decoracion1"
+            width="100%"
+            height="100%"
+            className="header-decoracion"
+          />
+        </Header>
+
+        <Content>
+          <p>Contenido de {title}</p>
+        </Content>
+      </ModalContainer>
+    </ModalStyled>,
     modalRoot
   );
 };

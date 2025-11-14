@@ -1,41 +1,47 @@
 import styled from "styled-components";
 
-interface WindowProps {
+interface ModalProps {
   positionY: number;
   positionX: number;
 }
 
-export const Window = styled.div<WindowProps>`
+export const ModalStyled = styled.div<ModalProps>`
   position: absolute;
   top: ${({ positionY }) => positionY}px;
   left: ${({ positionX }) => positionX}px;
+  z-index: 2;
 
-  width: 1600px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: -15px;
+    width: 1470px;
+    height: 780px;
+    border: 4px solid var(--color-border);
+
+    background-color: var(--color-medium-light);
+    border-radius: 26px;
+    z-index: -1;
+  }
+`;
+
+export const ModalContainer = styled.div`
+  width: 1470px;
   height: 780px;
   background: #ffffff;
   border: 4px solid var(--color-border);
   overflow: hidden;
 
-  border-radius: 26px;
+  border-radius: 24px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
 `;
 
 export const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: violet;
-  /* border-radius: 13px; */
-
-  color: white;
-  padding: 8px 12px;
-  /* z-index: -1; */
-  /* border-bottom: 2px solid #c49edb; */
-  font-weight: bold;
+  /* background-color: red; */
 `;
 
-export const HeaderTabs = styled.div`
+export const HeaderTabContainer = styled.div`
   height: 60px;
   width: 100%;
   background-color: var(--color-header-light);
@@ -94,5 +100,6 @@ export const Tab = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 15px;
+  /* padding: 15px; */
+  /* background-color: rebeccapurple; */
 `;

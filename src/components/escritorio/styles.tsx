@@ -8,4 +8,5 @@ export const EscritorioStyled = styled.div`
 
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: repeat(5, 1fr);
+  /* z-index: -1; */
 `;

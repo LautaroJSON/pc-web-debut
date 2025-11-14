@@ -46,6 +46,7 @@ const icons: Record<TSvgName, string> = {
 interface ISvgComponente {
   svgName: TSvgName;
   width?: string;
+  height?: string;
   className?: string;
 }
 
@@ -53,13 +54,14 @@ const SvgComponente = ({
   svgName,
   className,
   width = "100px",
+  height = "100px",
 }: ISvgComponente) => {
   return (
     <img
       src={icons[svgName]}
       alt={svgName}
       width={width}
-      height={width}
+      height={height}
       className={className}
     />
   );
