@@ -1,15 +1,16 @@
 import { useState } from "react";
-import styles from "./icon.module.css";
-import Modal from "../modals";
 import type { TSvgName } from "./Svg";
+import Modal from "../modals";
 import SvgComponente from "./Svg";
+import { IconBox, IconContainer, Title } from "./styles";
 
 interface IIcon {
   title?: string;
   icon: TSvgName;
+  width?: string;
 }
 
-const Icon = ({ title = "Lorem Ipsum", icon }: IIcon) => {
+const Icon = ({ title = "Lorem Ipsum", icon, width = "100px" }: IIcon) => {
   const [open, setOpen] = useState(false);
 
   const handleDoubleClick = () => {
@@ -18,12 +19,12 @@ const Icon = ({ title = "Lorem Ipsum", icon }: IIcon) => {
 
   return (
     <>
-      <div className={styles.iconContainer} onDoubleClick={handleDoubleClick}>
-        <div className={styles.iconBox}>
-          <SvgComponente svgName={icon} />
-        </div>
-        <div className={styles.title}>{title}</div>
-      </div>
+      <IconContainer onDoubleClick={handleDoubleClick} $Width={width}>
+        <IconBox>
+          <SvgComponente svgName={icon} width={width} />
+        </IconBox>
+        <Title>{title}</Title>
+      </IconContainer>
       {open && <Modal title={title} onClose={() => setOpen(false)} />}
     </>
   );

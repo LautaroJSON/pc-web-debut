@@ -97,6 +97,10 @@ const _ICONS_AND_COORDS: Array<{
   },
   {
     component: <Icon key={10} icon="carpeta" />,
+    coords: { x: 9, y: 2 },
+  },
+  {
+    component: <Icon key={10} icon="carpeta" />,
     coords: { x: 10, y: 2 },
   },
   // COLUMNA 3
@@ -108,6 +112,10 @@ const _ICONS_AND_COORDS: Array<{
     component: <Icon key={10} icon="carpeta" />,
     coords: { x: 1, y: 3 },
   },
+  {
+    component: <Icon key={10} icon="carpeta" />,
+    coords: { x: 10, y: 3 },
+  },
   // COLUMNA 4
   {
     component: <Icon key={10} icon="carpeta" />,
@@ -116,6 +124,10 @@ const _ICONS_AND_COORDS: Array<{
   {
     component: <Icon key={10} icon="imagen" />,
     coords: { x: 1, y: 4 },
+  },
+  {
+    component: <Icon key={10} icon="imagen" />,
+    coords: { x: 10, y: 4 },
   },
 ];
 

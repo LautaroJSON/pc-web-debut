@@ -33,12 +33,7 @@ function Escritorio({ icons = [], cols = 11, rows = 5 }: IEscritorio) {
   return (
     <EscritorioStyled>
       {grid.flat().map((cell, idx) => (
-        <div
-          key={idx}
-          className="w-16 h-16 border rounded-2xl flex items-center justify-center shadow-sm"
-        >
-          {cell}
-        </div>
+        <div key={idx}>{cell}</div>
       ))}
     </EscritorioStyled>
   );
