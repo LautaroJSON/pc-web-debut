@@ -53,7 +53,7 @@ const ModalCreditos = ({ onClose }: IModalProps) => {
       $positionX={position.x}
       onMouseDown={handleMouseDown}
     >
-      <ModalContainer $width={1200}>
+      <ModalContainer>
         <Header>
           <HeaderTabContainer>
             <div className="header-tab-list">

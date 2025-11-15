@@ -27,8 +27,6 @@ export const ModalStyled = styled.div<ModalProps>`
 `;
 
 export const ModalContainer = styled.div<{ $width?: number; $height?: number }>`
-  /* width: 1470px;
-  height: 780px; */
   width: ${(props) => (props.$width ? props.$width + "px" : "1480px")};
   height: ${(props) => (props.$height ? props.$height + "px" : "910px")};
   /* background: #ffffff; */
