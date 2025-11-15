@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 interface ModalProps {
-  positionY: number;
-  positionX: number;
+  $positionY: number;
+  $positionX: number;
 }
 
 export const ModalStyled = styled.div<ModalProps>`
   position: absolute;
-  top: ${({ positionY }) => positionY}px;
-  left: ${({ positionX }) => positionX}px;
+  top: ${({ $positionY }) => $positionY}px;
+  left: ${({ $positionX }) => $positionX}px;
   z-index: 2;
 
   &::before {

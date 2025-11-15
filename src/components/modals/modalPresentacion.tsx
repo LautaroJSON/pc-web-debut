@@ -31,12 +31,11 @@ const _TABS_: Array<{ name: string }> = [
   { name: "" },
 ];
 
-type ModalProps = {
-  title: string;
+export interface IModalProps {
   onClose?: () => void;
-};
+}
 
-const Modal = ({ onClose }: ModalProps) => {
+const ModalPresentacion = ({ onClose }: IModalProps) => {
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
 
@@ -74,16 +73,16 @@ const Modal = ({ onClose }: ModalProps) => {
 
   return ReactDOM.createPortal(
     <ModalStyled
-      positionY={position.y}
-      positionX={position.x}
+      $positionY={position.y}
+      $positionX={position.x}
       onMouseDown={handleMouseDown}
     >
       <ModalContainer>
         <Header>
           <HeaderTabContainer>
             <div className="header-tab-list">
-              {_TABS_.map((t) => (
-                <Tab>
+              {_TABS_.map((t, index) => (
+                <Tab key={t.name + index}>
                   {t.name != "" && <div className="text-tab">{t.name}</div>}
                 </Tab>
               ))}
@@ -109,4 +108,4 @@ const Modal = ({ onClose }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default ModalPresentacion;

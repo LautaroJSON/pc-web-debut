@@ -3,40 +3,16 @@ import React, { useState, useRef } from "react";
 import {
   Content,
   HeaderTabContainer,
-  Tab,
   HeaderButton,
   ModalStyled,
   ModalContainer,
   Header,
 } from "./styles";
-import SvgComponente from "../Icons/Svg";
-
-const _TABS_: Array<{ name: string }> = [
-  { name: "Perfil - Z-03" },
-  { name: "Zombiefy" },
-  { name: "Deadflix" },
-  { name: "Crunchybrain" },
-  { name: "Zteam" },
-  { name: "Tomblr" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-  { name: "" },
-];
-
-type ModalProps = {
-  title: string;
+export interface IModalProps {
   onClose?: () => void;
-};
+}
 
-const Modal = ({ onClose }: ModalProps) => {
+const ModalCreditos = ({ onClose }: IModalProps) => {
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
 
@@ -47,7 +23,6 @@ const Modal = ({ onClose }: ModalProps) => {
   const [position, setPosition] = useState({ x: 50, y: 50 });
 
   // Drag control
-
   const handleMouseDown = (e: React.MouseEvent) => {
     isDragging.current = true;
     offset.current = {
@@ -74,19 +49,15 @@ const Modal = ({ onClose }: ModalProps) => {
 
   return ReactDOM.createPortal(
     <ModalStyled
-      positionY={position.y}
-      positionX={position.x}
+      $positionY={position.y}
+      $positionX={position.x}
       onMouseDown={handleMouseDown}
     >
       <ModalContainer>
         <Header>
           <HeaderTabContainer>
             <div className="header-tab-list">
-              {_TABS_.map((t) => (
-                <Tab>
-                  {t.name != "" && <div className="text-tab">{t.name}</div>}
-                </Tab>
-              ))}
+              <p>Creditos del modelo :3</p>
             </div>
             <div className="header-tab-buttons-list">
               <HeaderButton>_</HeaderButton>
@@ -94,12 +65,6 @@ const Modal = ({ onClose }: ModalProps) => {
               <HeaderButton onClick={onClose}>X</HeaderButton>
             </div>
           </HeaderTabContainer>
-          <SvgComponente
-            svgName="decoracion1"
-            width="100%"
-            height="100%"
-            className="header-decoracion"
-          />
         </Header>
 
         <Content></Content>
@@ -109,4 +74,4 @@ const Modal = ({ onClose }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default ModalCreditos;
