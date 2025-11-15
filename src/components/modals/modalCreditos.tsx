@@ -53,11 +53,11 @@ const ModalCreditos = ({ onClose }: IModalProps) => {
       $positionX={position.x}
       onMouseDown={handleMouseDown}
     >
-      <ModalContainer>
+      <ModalContainer $width={1200}>
         <Header>
           <HeaderTabContainer>
             <div className="header-tab-list">
-              <p>Creditos del modelo :3</p>
+              <span style={{ marginLeft: "12px" }}>Creditos del modelo :3</span>
             </div>
             <div className="header-tab-buttons-list">
               <HeaderButton>_</HeaderButton>
@@ -67,7 +67,9 @@ const ModalCreditos = ({ onClose }: IModalProps) => {
           </HeaderTabContainer>
         </Header>
 
-        <Content></Content>
+        <Content>
+          <img src="/creditos.png" alt="Créditos del modelo :3" width="100%" />
+        </Content>
       </ModalContainer>
     </ModalStyled>,
     modalRoot

@@ -8,6 +8,8 @@ import {
   ModalStyled,
   ModalContainer,
   Header,
+  ContentPresentacion,
+  DecoracionHeader,
 } from "./styles";
 import SvgComponente from "../Icons/Svg";
 
@@ -93,15 +95,19 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
               <HeaderButton onClick={onClose}>X</HeaderButton>
             </div>
           </HeaderTabContainer>
-          <SvgComponente
-            svgName="decoracion1"
-            width="100%"
-            height="100%"
-            className="header-decoracion"
-          />
+          <DecoracionHeader>
+            <SvgComponente
+              svgName="decoracion1"
+              width="100%"
+              height="100%"
+              className="header-decoracion"
+            />
+          </DecoracionHeader>
         </Header>
 
-        <Content></Content>
+        <ContentPresentacion>
+          <img src="/Inforufi.svg" alt="Presentación Rufi Z-03" />
+        </ContentPresentacion>
       </ModalContainer>
     </ModalStyled>,
     modalRoot

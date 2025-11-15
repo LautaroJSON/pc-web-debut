@@ -14,41 +14,44 @@ export const ModalStyled = styled.div<ModalProps>`
   &::before {
     content: "";
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: -15px;
-    width: 1470px;
-    height: 780px;
+    width: 100%;
+    height: 100%;
     border: 4px solid var(--color-border);
 
     background-color: var(--color-medium-light);
-    border-radius: 26px;
+    border-radius: 24px;
     z-index: -1;
   }
 `;
 
-export const ModalContainer = styled.div`
-  width: 1470px;
-  height: 780px;
-  background: #ffffff;
+export const ModalContainer = styled.div<{ $width?: number; $height?: number }>`
+  /* width: 1470px;
+  height: 780px; */
+  width: ${(props) => (props.$width ? props.$width + "px" : "1480px")};
+  height: ${(props) => (props.$height ? props.$height + "px" : "910px")};
+  /* background: #ffffff; */
   border: 4px solid var(--color-border);
   overflow: hidden;
 
-  border-radius: 24px;
+  border-radius: 26px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 `;
 
 export const Header = styled.div`
-  /* background-color: red; */
+  position: relative;
+  z-index: 3;
 `;
 
 export const HeaderTabContainer = styled.div`
-  height: 60px;
+  height: 55px;
   width: 100%;
   background-color: var(--color-header-light);
   border-bottom: 4px solid var(--color-border);
 
   display: grid;
-  grid-template-columns: auto 200px;
+  grid-template-columns: auto 170px;
   align-items: center;
 
   .header-tab-list {
@@ -59,7 +62,7 @@ export const HeaderTabContainer = styled.div`
   .header-tab-buttons-list {
     display: flex;
     justify-content: center;
-    gap: 5px;
+    gap: 2px;
   }
 `;
 
@@ -99,7 +102,20 @@ export const Tab = styled.div`
   }
 `;
 
-export const Content = styled.div`
-  /* padding: 15px; */
-  /* background-color: rebeccapurple; */
+export const Content = styled.div``;
+
+export const DecoracionHeader = styled.div`
+  position: absolute;
+  width: 100%;
+
+  top: 40px;
+  left: 0;
+  z-index: -1;
+`;
+
+export const ContentPresentacion = styled.div`
+  position: absolute;
+  width: calc(100% - 8px);
+  top: 10px;
+  z-index: -1;
 `;
