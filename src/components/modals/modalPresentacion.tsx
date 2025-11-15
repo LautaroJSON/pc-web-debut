@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom";
 import React, { useState, useRef } from "react";
 import {
-  Content,
   HeaderTabContainer,
   Tab,
   HeaderButton,
