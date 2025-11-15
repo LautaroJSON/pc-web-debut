@@ -22,7 +22,7 @@ const _ICONS_AND_COORDS: Array<{
     coords: { x: 2, y: 0 },
   },
   {
-    component: <Icon key={3} title="Gubbul" icon="gugul" />,
+    component: <Icon key={3} title="Gubbul" icon="gugul" haveModal={true} />,
     coords: { x: 3, y: 0 },
   },
   {
@@ -42,11 +42,20 @@ const _ICONS_AND_COORDS: Array<{
     coords: { x: 8, y: 0 },
   },
   {
-    component: <Icon key={6} title="Abobe Premiere" icon="imagen" />,
+    component: (
+      <Icon
+        key={6}
+        title="Creditos del modelo :3"
+        icon="imagen"
+        haveModal={true}
+      />
+    ),
     coords: { x: 9, y: 0 },
   },
   {
-    component: <Icon key={6} title="Abobe Premiere" icon="imagen" />,
+    component: (
+      <Icon key={6} title="Hoja de referencia" icon="imagen" haveModal={true} />
+    ),
     coords: { x: 10, y: 0 },
   },
   // COLUMNA 1

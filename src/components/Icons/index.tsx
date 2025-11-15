@@ -8,13 +8,21 @@ interface IIcon {
   title?: string;
   icon: TSvgName;
   width?: string;
+  haveModal?: boolean;
 }
 
-const Icon = ({ title = "Lorem Ipsum", icon, width = "100px" }: IIcon) => {
+const Icon = ({
+  title = "Lorem Ipsum",
+  icon,
+  width = "100px",
+  haveModal = false,
+}: IIcon) => {
   const [open, setOpen] = useState(false);
 
   const handleDoubleClick = () => {
-    setOpen(true);
+    if (haveModal) {
+      setOpen(true);
+    }
   };
 
   return (
@@ -25,7 +33,9 @@ const Icon = ({ title = "Lorem Ipsum", icon, width = "100px" }: IIcon) => {
         </IconBox>
         <Title>{title}</Title>
       </IconContainer>
-      {open && <Modal title={title} onClose={() => setOpen(false)} />}
+      {open && haveModal && (
+        <Modal title={title} onClose={() => setOpen(false)} />
+      )}
     </>
   );
 };
