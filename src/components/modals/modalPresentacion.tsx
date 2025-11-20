@@ -101,7 +101,11 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
           <HeaderTabContainer>
             <div className="header-tab-list">
               {_TABS_.map((t, index) => (
-                <Tab key={t.name + index} onClick={() => handleTabClick(index)}>
+                <Tab
+                  key={t.name + index}
+                  onClick={() => handleTabClick(index)}
+                  $active={activeTab === index}
+                >
                   {t.name !== "" && <div className="text-tab">{t.name}</div>}
                 </Tab>
               ))}

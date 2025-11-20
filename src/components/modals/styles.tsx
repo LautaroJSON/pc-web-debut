@@ -79,18 +79,22 @@ export const HeaderButton = styled.div`
   font-weight: bold;
 `;
 
-export const Tab = styled.div`
+export const Tab = styled.div<{ $active: boolean }>`
   display: flex;
   position: relative;
   align-items: center;
   padding: 0px 12px 0px 12px;
   border-right: 3px solid var(--color-border);
+
   height: 34px;
   min-width: fit-content;
   cursor: pointer;
 
   .text-tab {
+    box-sizing: border-box;
     margin-right: 12px;
+    border-bottom: ${(props) =>
+      props.$active ? "4px dotted var(--color-border)" : "none"};
   }
   &::after {
     content: "X";
