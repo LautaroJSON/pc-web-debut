@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, type JSX } from "react";
 import {
   HeaderTabContainer,
   Tab,
@@ -32,6 +32,15 @@ const _TABS_: Array<{ name: string }> = [
   { name: "" },
 ];
 
+const tabContent: JSX.Element[] = [
+  <img key={0} src="/Inforufi.svg" alt="Presentación Rufi Z-03" />,
+  <img key={1} src="/zombify.svg" alt="Presentación Rufi Z-03" />,
+  <img key={2} src="/pelis.svg" alt="Presentación Rufi Z-03" />,
+  <img key={3} src="/anime.svg" alt="Presentación Rufi Z-03" />,
+  <img key={4} src="/juegos.svg" alt="Presentación Rufi Z-03" />,
+  <img key={5} src="/tomblr1.svg" alt="Presentación Rufi Z-03" />,
+];
+
 export interface IModalProps {
   onClose?: () => void;
 }
@@ -44,9 +53,18 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
   const offset = useRef({ x: 0, y: 0 });
   const isDragging = useRef(false);
 
-  const [position, setPosition] = useState({ x: 50, y: 50 });
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 50,
+    y: 50,
+  });
 
-  // Drag control
+  const [activeTab, setActiveTab] = useState<number>(0);
+
+  const handleTabClick = (index: number) => {
+    setActiveTab(index);
+  };
+
+  //------- Drag control -------//
 
   const handleMouseDown = (e: React.MouseEvent) => {
     isDragging.current = true;
@@ -83,8 +101,8 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
           <HeaderTabContainer>
             <div className="header-tab-list">
               {_TABS_.map((t, index) => (
-                <Tab key={t.name + index}>
-                  {t.name != "" && <div className="text-tab">{t.name}</div>}
+                <Tab key={t.name + index} onClick={() => handleTabClick(index)}>
+                  {t.name !== "" && <div className="text-tab">{t.name}</div>}
                 </Tab>
               ))}
             </div>
@@ -104,9 +122,7 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
           </DecoracionHeader>
         </Header>
 
-        <ContentPresentacion>
-          <img src="/Inforufi.svg" alt="Presentación Rufi Z-03" />
-        </ContentPresentacion>
+        <ContentPresentacion>{tabContent[activeTab]}</ContentPresentacion>
       </ModalContainer>
     </ModalStyled>,
     modalRoot
