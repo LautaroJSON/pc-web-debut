@@ -5,7 +5,12 @@
 
 @font-face {
   font-family: "Angel Wish";
-  src: url("/public/fonts/Angel\ wish.ttf") format("opentype");
+  /* Usar URL codificada para evitar problemas con espacios en el nombre del archivo
+     (mejor renombrar el archivo a "angel-wish.otf" en el servidor/public). */
+  src: url("/public/fonts/Angel%20wish.ttf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 :root {
