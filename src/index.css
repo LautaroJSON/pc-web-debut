@@ -1,3 +1,13 @@
+@font-face {
+  font-family: "BOOKOSB";
+  src: url("/public/fonts/BOOKOSB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Angel Wish";
+  src: url("/public/fonts/Angel\ wish.ttf") format("opentype");
+}
+
 :root {
   font-family: "Fredoka", sans-serif;
   font-weight: 500;
