@@ -119,5 +119,28 @@ export const ContentPresentacion = styled.div`
   position: absolute;
   width: calc(100% - 8px);
   top: 10px;
-  z-index: -1;
+  /* Estaba con z-index -1 (detrás), por eso los clicks no llegaban.
+     Lo elevamos y aseguramos pointer-events para que pueda recibir eventos. */
+  z-index: 1;
+  pointer-events: auto;
+
+  .class-tomblr {
+    position: absolute !important;
+    /* top: -4px;
+    right: -14px; */
+
+    left: -8px;
+    top: -2px;
+    width: 1502px;
+  }
+
+  .class-tomblr-2 {
+    position: absolute !important;
+    /* top: -4px;
+    right: -14px; */
+    top: -4px;
+
+    /* left: -8px; */
+    /* width: 1502px; */
+  }
 `;

@@ -10,7 +10,13 @@ import {
   ContentPresentacion,
   DecoracionHeader,
 } from "./styles";
+
+import { TomblrComponent as TomblrComponent } from "../../assets/icons/tomblr";
 import SvgComponente from "../Icons/Svg";
+import { TomblrHobbies } from "../../assets/icons/tomblrHobbies";
+import { TomblrFunfacts } from "../../assets/icons/tomblrFunfacts";
+import { TomblrGustos } from "../../assets/icons/tomblrGustos";
+import { TomblrMetas } from "../../assets/icons/tomblrMetas";
 
 const _TABS_: Array<{ name: string }> = [
   { name: "Perfil - Z-03" },
@@ -32,22 +38,56 @@ const _TABS_: Array<{ name: string }> = [
   { name: "" },
 ];
 
-const tabContent: JSX.Element[] = [
-  <img key={0} src="/Inforufi.svg" alt="Presentación Rufi Z-03" />,
-  <img key={1} src="/zombify.svg" alt="Presentación Rufi Z-03" />,
-  <img key={2} src="/pelis.svg" alt="Presentación Rufi Z-03" />,
-  <img key={3} src="/anime.svg" alt="Presentación Rufi Z-03" />,
-  <img key={4} src="/juegos.svg" alt="Presentación Rufi Z-03" />,
-  <img key={5} src="/tomblr1.svg" alt="Presentación Rufi Z-03" />,
-];
-
 export interface IModalProps {
   onClose?: () => void;
 }
 
+type tabs = "uno" | "metas" | "hobbies" | "funfacts" | "gustos";
+
 const ModalPresentacion = ({ onClose }: IModalProps) => {
   const modalRoot = document.getElementById("modal-root");
   if (!modalRoot) return null;
+
+  const tabContent: JSX.Element[] = [
+    <img key={0} src="/Inforufi.svg" alt="Presentación Rufi Z-03" />,
+    <img key={1} src="/zombify.svg" alt="Presentación Rufi Z-03" />,
+    <img key={2} src="/pelis.svg" alt="Presentación Rufi Z-03" />,
+    <img key={3} src="/anime.svg" alt="Presentación Rufi Z-03" />,
+    <img key={4} src="/juegos.svg" alt="Presentación Rufi Z-03" />,
+  ];
+
+  const tomblrTabContent: Record<tabs, JSX.Element> = {
+    uno: (
+      <TomblrComponent
+        className="class-tomblr"
+        onClick={(name: string) => setActiveSubTab(name as tabs)}
+      />
+    ),
+    hobbies: (
+      <TomblrHobbies
+        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        className="class-tomblr-2"
+      />
+    ),
+    funfacts: (
+      <TomblrFunfacts
+        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        className="class-tomblr-2"
+      />
+    ),
+    gustos: (
+      <TomblrGustos
+        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        className="class-tomblr-2"
+      />
+    ),
+    metas: (
+      <TomblrMetas
+        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        className="class-tomblr-2"
+      />
+    ),
+  };
 
   // Estado de posición
   const offset = useRef({ x: 0, y: 0 });
@@ -59,6 +99,9 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
   });
 
   const [activeTab, setActiveTab] = useState<number>(0);
+  const [activeSubTab, setActiveSubTab] = useState<
+    "uno" | "metas" | "hobbies" | "funfacts" | "gustos"
+  >("uno");
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);
@@ -125,8 +168,11 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
             />
           </DecoracionHeader>
         </Header>
-
-        <ContentPresentacion>{tabContent[activeTab]}</ContentPresentacion>
+        <ContentPresentacion>
+          {activeTab === 5
+            ? tomblrTabContent[activeSubTab]
+            : tabContent[activeTab]}
+        </ContentPresentacion>
       </ModalContainer>
     </ModalStyled>,
     modalRoot

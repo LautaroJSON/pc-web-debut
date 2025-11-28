@@ -11,6 +11,7 @@ import pr from "../../../assets/icons/pr.svg";
 import winrawr from "../../../assets/icons/winrawr.svg";
 import zteam from "../../../assets/icons/zteam.svg";
 import discawrd from "../../../assets/icons/discawrd.svg";
+import tomblr from "../../../assets/icons/tomblr.svg";
 
 export type TSvgName =
   | "carpeta"
@@ -25,6 +26,7 @@ export type TSvgName =
   | "winrawr"
   | "zteam"
   | "discawrd"
+  | "tomblr"
   | "windows";
 
 const icons: Record<TSvgName, string> = {
@@ -40,6 +42,7 @@ const icons: Record<TSvgName, string> = {
   winrawr,
   zteam,
   discawrd,
+  tomblr,
   windows,
 };
 
@@ -48,6 +51,7 @@ interface ISvgComponente {
   width?: string;
   height?: string;
   className?: string;
+  onMouseMove?: (e: React.MouseEvent) => void;
 }
 
 const SvgComponente = ({
@@ -55,6 +59,7 @@ const SvgComponente = ({
   className,
   width = "100px",
   height = "100px",
+  onMouseMove,
 }: ISvgComponente) => {
   return (
     <img
@@ -63,6 +68,7 @@ const SvgComponente = ({
       width={width}
       height={height}
       className={className}
+      onMouseMove={onMouseMove}
     />
   );
 };
