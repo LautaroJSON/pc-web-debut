@@ -11,8 +11,8 @@ import {
   DecoracionHeader,
 } from "./styles";
 
-import { TomblrComponent as TomblrComponent } from "../../assets/icons/tomblr";
 import SvgComponente from "../Icons/Svg";
+import { TomblrComponent } from "../../assets/icons/tomblr";
 import { TomblrHobbies } from "../../assets/icons/tomblrHobbies";
 import { TomblrFunfacts } from "../../assets/icons/tomblrFunfacts";
 import { TomblrGustos } from "../../assets/icons/tomblrGustos";
@@ -42,7 +42,7 @@ export interface IModalProps {
   onClose?: () => void;
 }
 
-type tabs = "uno" | "metas" | "hobbies" | "funfacts" | "gustos";
+export type tabsOptions = "uno" | "metas" | "hobbies" | "funfacts" | "gustos";
 
 const ModalPresentacion = ({ onClose }: IModalProps) => {
   const modalRoot = document.getElementById("modal-root");
@@ -56,34 +56,34 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
     <img key={4} src="/juegos.svg" alt="Presentación Rufi Z-03" />,
   ];
 
-  const tomblrTabContent: Record<tabs, JSX.Element> = {
+  const tomblrTabContent: Record<tabsOptions, JSX.Element> = {
     uno: (
       <TomblrComponent
-        className="class-tomblr"
-        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        className="class-tomblr-2"
+        onClick={(name: tabsOptions) => setActiveSubTab(name)}
       />
     ),
     hobbies: (
       <TomblrHobbies
-        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        onClick={(name: tabsOptions) => setActiveSubTab(name)}
         className="class-tomblr-2"
       />
     ),
     funfacts: (
       <TomblrFunfacts
-        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        onClick={(name: tabsOptions) => setActiveSubTab(name)}
         className="class-tomblr-2"
       />
     ),
     gustos: (
       <TomblrGustos
-        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        onClick={(name: tabsOptions) => setActiveSubTab(name)}
         className="class-tomblr-2"
       />
     ),
     metas: (
       <TomblrMetas
-        onClick={(name: string) => setActiveSubTab(name as tabs)}
+        onClick={(name: tabsOptions) => setActiveSubTab(name)}
         className="class-tomblr-2"
       />
     ),
@@ -99,9 +99,7 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
   });
 
   const [activeTab, setActiveTab] = useState<number>(0);
-  const [activeSubTab, setActiveSubTab] = useState<
-    "uno" | "metas" | "hobbies" | "funfacts" | "gustos"
-  >("uno");
+  const [activeSubTab, setActiveSubTab] = useState<tabsOptions>("uno");
 
   const handleTabClick = (index: number) => {
     setActiveTab(index);

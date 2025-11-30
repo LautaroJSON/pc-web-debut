@@ -6,6 +6,7 @@ import ModalPresentacion, {
 } from "../modals/modalPresentacion";
 import ModalCreditos from "../modals/modalCreditos";
 import React from "react";
+import ModalReferencia from "../modals/modalReferencia";
 
 interface IIconosEscritorio {
   id: number;
@@ -70,6 +71,7 @@ const _ICONS_AND_COORDS_: Array<IIconosEscritorio> = [
     id: 9,
     component: <Icon key={9} title="Hoja de referencia" icon="imagen" />,
     coords: { x: 10, y: 0 },
+    modal: (props) => <ModalReferencia key="m9" {...props} />,
   },
   // COLUMNA 1
   {

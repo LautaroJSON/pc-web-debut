@@ -1,9 +1,11 @@
+import type { tabsOptions } from "../../components/modals/modalPresentacion";
+
 export const TomblrGustos = ({
   className,
   onClick,
 }: {
   className?: string;
-  onClick: (tabName: string) => void;
+  onClick: (tabName: tabsOptions) => void;
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
