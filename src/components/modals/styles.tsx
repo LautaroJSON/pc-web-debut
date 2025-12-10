@@ -26,7 +26,11 @@ export const ModalStyled = styled.div<ModalProps>`
   }
 `;
 
-export const ModalContainer = styled.div<{ $width?: number; $height?: number }>`
+export const ModalContainer = styled.div<{
+  $width?: number;
+  $height?: number;
+  $shake?: boolean;
+}>`
   width: ${(props) => (props.$width ? props.$width + "px" : "1480px")};
   height: ${(props) => (props.$height ? props.$height + "px" : "910px")};
   /* background: #ffffff; */
@@ -35,6 +39,30 @@ export const ModalContainer = styled.div<{ $width?: number; $height?: number }>`
 
   border-radius: 26px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+
+  /* Animación de temblor breve */
+  @keyframes shake {
+    0% {
+      transform: translate(0, 0);
+    }
+    20% {
+      transform: translate(-8px, 0);
+    }
+    40% {
+      transform: translate(8px, 0);
+    }
+    60% {
+      transform: translate(-6px, 0);
+    }
+    80% {
+      transform: translate(6px, 0);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  ${(p) => p.$shake && `animation: shake 0.3s ease-in-out;`}
 `;
 
 export const Header = styled.div`

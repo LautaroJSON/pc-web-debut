@@ -21,6 +21,10 @@ type PopupDef = {
     x: number;
     y: number;
   };
+  sound: {
+    url: string;
+    loop: boolean;
+  };
 };
 
 const _POPUPS_: Record<PopupsID, PopupDef> = {
@@ -35,6 +39,10 @@ const _POPUPS_: Record<PopupsID, PopupDef> = {
       x: 150,
       y: 150,
     },
+    sound: {
+      url: "/sounds/pop.mp3",
+      loop: false,
+    },
   },
   [PopupsID.meme]: {
     imagen: <img src="/meme.gif" alt="Fanfic" width="100%" height="100%" />,
@@ -47,6 +55,10 @@ const _POPUPS_: Record<PopupsID, PopupDef> = {
       x: 300,
       y: 30,
     },
+    sound: {
+      url: "/sounds/10000-hz.mp3",
+      loop: true,
+    },
   },
   [PopupsID.otrochat]: {
     imagen: <img src="/otrochat.png" alt="Fanfic" width="100%" height="100%" />,
@@ -58,6 +70,10 @@ const _POPUPS_: Record<PopupsID, PopupDef> = {
     initialPosition: {
       x: 500,
       y: 150,
+    },
+    sound: {
+      url: "/sounds/pop.mp3",
+      loop: false,
     },
   },
 };
@@ -74,23 +90,59 @@ const Popups = () => {
     x: _POPUPS_[popups]?.initialPosition.x,
     y: _POPUPS_[popups]?.initialPosition.y,
   });
-  const trys = useRef(4);
+  const trys = useRef(3);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [shake, setShake] = useState(false);
 
   const tryDeletedPopup = () => {
     if (trys.current === 0) {
       deletePopup();
+      //al cerrar
       setPosition({ x: 150, y: 150 });
       trys.current = 4;
+      if (audioRef.current) {
+        try {
+          audioRef.current.pause();
+          audioRef.current.currentTime = 0;
+        } catch (e) {
+          /* noop */
+        }
+        audioRef.current = null;
+      }
     } else {
       trys.current -= 1;
-      const operator = getRandomOperator();
-      const xOffset = operator === "+" ? 100 : -100;
-      const yOffset = operator === "+" ? 100 : -35;
+      // reproducir sonido de error en cada intento fallido
+      try {
+        const errAudio = new Audio("/sounds/erro.mp3");
+        errAudio.volume = 0.6;
+        // reproducir sin bloquear (catch por políticas de autoplay)
+        errAudio.play().catch(() => {});
+      } catch (e) {
+        /* noop */
+      }
+      // activar animación de temblor
+      setShake(true);
+      // limpiar después de la animación
+      setTimeout(() => setShake(false), 300);
 
-      setPosition((prev) => ({
-        x: prev.x + xOffset,
-        y: prev.y + yOffset,
-      }));
+      // calcular offsets, pero asegurarnos de que la nueva Y no sea negativa.
+      setPosition((prev) => {
+        let operator = getRandomOperator();
+        let xOffset = operator === "+" ? 100 : -100;
+        let yOffset = operator === "+" ? 100 : -35;
+
+        // si al aplicar yOffset la y fuera negativa, invertimos el operador
+        if (prev.y + yOffset < 0) {
+          operator = operator === "+" ? "-" : "+";
+          xOffset = operator === "+" ? 100 : -100;
+          yOffset = operator === "+" ? 100 : -35;
+        }
+
+        return {
+          x: prev.x + xOffset,
+          y: Math.max(0, prev.y + yOffset),
+        };
+      });
     }
   };
 
@@ -120,10 +172,18 @@ const Popups = () => {
   };
 
   useEffect(() => {
-    if (popups === null) return;
-    const initial = _POPUPS_[popups].initialPosition;
-    setPosition({ x: initial.x, y: initial.y });
-    trys.current = 4; // si quieres reiniciar intentos al abrir un popup nuevo
+    const def = _POPUPS_[popups];
+    if (popups !== null && def && def.sound?.url) {
+      const audio = new Audio(def.sound.url);
+      audio.loop = !!def.sound.loop;
+      // volumen por defecto, ajustable
+      audio.volume = 0.5;
+      // intentar reproducir (podría fallar por autoplay policies)
+      audio.play().catch(() => {
+        // si falla, no hacemos nada; el usuario probablemente necesite interactuar
+      });
+      audioRef.current = audio;
+    }
   }, [popups]);
 
   return popups !== null
@@ -136,6 +196,7 @@ const Popups = () => {
           <ModalContainer
             $height={_POPUPS_[popups]?.size.height ?? undefined}
             $width={_POPUPS_[popups]?.size.width ?? undefined}
+            $shake={shake}
           >
             <Header>
               <HeaderTabContainer>
