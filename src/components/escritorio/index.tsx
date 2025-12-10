@@ -1,4 +1,4 @@
-import { useContext, useState, type JSX } from "react";
+import { useState, type JSX } from "react";
 import { EscritorioStyled } from "./styles";
 import Icon from "../Icons";
 import ModalPresentacion, {
@@ -7,7 +7,7 @@ import ModalPresentacion, {
 import ModalCreditos from "../modals/modalCreditos";
 import React from "react";
 import ModalReferencia from "../modals/modalReferencia";
-import { PopupsContext } from "../../context";
+
 import Popups from "../modals/popups/popups";
 
 interface IIconosEscritorio {
