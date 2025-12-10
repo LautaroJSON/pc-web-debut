@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import React, { useState, useRef, type JSX } from "react";
+import React, { useState, useRef, type JSX, useContext } from "react";
 import {
   HeaderTabContainer,
   Tab,
@@ -17,6 +17,8 @@ import { TomblrHobbies } from "../../assets/icons/tomblrHobbies";
 import { TomblrFunfacts } from "../../assets/icons/tomblrFunfacts";
 import { TomblrGustos } from "../../assets/icons/tomblrGustos";
 import { TomblrMetas } from "../../assets/icons/tomblrMetas";
+import { GetModalroot } from "../utils";
+import { PopupsContext, PopupsID } from "../../context";
 
 const _TABS_: Array<{ name: string }> = [
   { name: "Perfil - Z-03" },
@@ -45,8 +47,7 @@ export interface IModalProps {
 export type tabsOptions = "uno" | "metas" | "hobbies" | "funfacts" | "gustos";
 
 const ModalPresentacion = ({ onClose }: IModalProps) => {
-  const modalRoot = document.getElementById("modal-root");
-  if (!modalRoot) return null;
+  const { addPopup } = useContext(PopupsContext);
 
   const tabContent: JSX.Element[] = [
     <img key={0} src="/Inforufi.svg" alt="Presentación Rufi Z-03" />,
@@ -102,6 +103,20 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
   const [activeSubTab, setActiveSubTab] = useState<tabsOptions>("uno");
 
   const handleTabClick = (index: number) => {
+    if (index === 6) {
+      addPopup(PopupsID.ao3);
+    }
+
+    if (index > 5) return;
+
+    if (index === 1) {
+      addPopup(PopupsID.ao3);
+    } else if (index === 2) {
+      addPopup(PopupsID.otrochat);
+    } else if (index === 3) {
+      addPopup(PopupsID.meme);
+    }
+
     setActiveTab(index);
   };
 
@@ -173,7 +188,7 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
         </ContentPresentacion>
       </ModalContainer>
     </ModalStyled>,
-    modalRoot
+    GetModalroot()!
   );
 };
 

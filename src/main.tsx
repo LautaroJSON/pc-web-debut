@@ -2,9 +2,12 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import Home from "./home/index.tsx";
+import PopupsProvider from "./context/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <Home />
+    <PopupsProvider>
+      <Home />
+    </PopupsProvider>
   </StrictMode>
 );
