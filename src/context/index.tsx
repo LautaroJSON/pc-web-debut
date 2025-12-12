@@ -1,6 +1,14 @@
 import { createContext, useState, type ReactNode } from "react";
 
 // Contexto para manejar popups en la app
+
+export enum PopupsID {
+  ao3,
+  meme,
+  otrochat,
+  ad,
+}
+
 interface PopupsContextType {
   popups: PopupsID | null;
   addPopup: (idprops: PopupsID) => void;
@@ -12,12 +20,6 @@ const defaultContext: PopupsContextType = {
   addPopup: () => {},
   deletePopup: () => {},
 };
-
-export enum PopupsID {
-  ao3,
-  meme,
-  otrochat,
-}
 
 export const PopupsContext = createContext<PopupsContextType>(defaultContext);
 

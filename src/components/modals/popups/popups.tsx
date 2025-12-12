@@ -76,6 +76,37 @@ const _POPUPS_: Record<PopupsID, PopupDef> = {
       loop: false,
     },
   },
+  [PopupsID.ad]: {
+    imagen: (
+      <video
+        src="/Secuencia 01_14.mp4"
+        controls
+        preload="metadata"
+        style={{
+          // position: "fixed",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: 1,
+        }}
+      />
+    ),
+    id: PopupsID.ad,
+    size: {
+      height: null,
+      width: null,
+    },
+    initialPosition: {
+      x: 0,
+      y: 0,
+    },
+    sound: {
+      url: "/sounds/pop.mp3",
+      loop: false,
+    },
+  },
 };
 
 const Popups = () => {

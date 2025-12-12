@@ -24,12 +24,14 @@ const _ICONS_AND_COORDS_: Array<IIconosEscritorio> = [
   // COLUMNA 0
   {
     id: 0,
-    component: <Icon key={0} title="Lorem Ipsun" icon="carpeta" />,
+    component: <Icon key={0} title="Cosas del SIGLO XXI" icon="carpeta" />,
     coords: { x: 0, y: 0 },
   },
   {
     id: 1,
-    component: <Icon key={1} title="Lorem Ipsun" icon="imagen" />,
+    component: (
+      <Icon key={1} title="Borrador final FINAL (Final).png" icon="imagen" />
+    ),
     coords: { x: 1, y: 0 },
   },
   {
@@ -60,7 +62,7 @@ const _ICONS_AND_COORDS_: Array<IIconosEscritorio> = [
   },
   {
     id: 7,
-    component: <Icon key={7} title="lorem ipsum" icon="imagen" />,
+    component: <Icon key={7} title="Salomón.jpg" icon="imagen" />,
     coords: { x: 8, y: 0 },
   },
   {
@@ -93,85 +95,91 @@ const _ICONS_AND_COORDS_: Array<IIconosEscritorio> = [
   },
   {
     id: 13,
-    component: <Icon key={13} icon="imagen" />,
+    component: <Icon key={13} title="alksdja.png" icon="imagen" />,
     coords: { x: 3, y: 1 },
   },
   {
     id: 14,
-    component: <Icon key={14} icon="imagen" />,
+    component: <Icon key={14} title="AAAAAA.jpg" icon="imagen" />,
     coords: { x: 4, y: 1 },
   },
   {
     id: 15,
-    component: <Icon key={15} icon="imagen" />,
+    component: <Icon key={15} title="Husbandos collage.png" icon="imagen" />,
     coords: { x: 5, y: 1 },
   },
   {
     id: 16,
-    component: <Icon key={16} icon="carpeta" />,
+    component: <Icon key={16} title="COSAS IMPORTANTES" icon="carpeta" />,
     coords: { x: 9, y: 1 },
   },
   {
     id: 17,
-    component: <Icon key={17} icon="imagen" />,
+    component: <Icon key={17} title="awrawrawrr.jpg" icon="imagen" />,
     coords: { x: 10, y: 1 },
   },
   // COLUMNA 2
   {
     id: 18,
-    component: <Icon key={18} icon="imagen" />,
+    component: <Icon key={18} title="floresuwu.png" icon="imagen" />,
     coords: { x: 0, y: 2 },
   },
   {
     id: 19,
-    component: <Icon key={19} icon="imagen" />,
+    component: <Icon key={19} title="Borrar.png" icon="imagen" />,
     coords: { x: 1, y: 2 },
   },
   {
     id: 20,
-    component: <Icon key={20} icon="carpeta" />,
+    component: <Icon key={20} title="Fotos viejitas" icon="carpeta" />,
     coords: { x: 2, y: 2 },
   },
   {
     id: 21,
-    component: <Icon key={21} icon="carpeta" />,
+    component: <Icon key={21} title="Recuerdos viejitos" icon="carpeta" />,
     coords: { x: 9, y: 2 },
   },
   {
     id: 22,
-    component: <Icon key={22} icon="carpeta" />,
+    component: <Icon key={22} title="Mods Sims4" icon="carpeta" />,
     coords: { x: 10, y: 2 },
   },
   // COLUMNA 3
   {
     id: 23,
-    component: <Icon key={23} icon="carpeta" />,
+    component: <Icon key={23} title="Rufiancitos buenos :D" icon="carpeta" />,
     coords: { x: 0, y: 3 },
   },
   {
     id: 24,
-    component: <Icon key={24} icon="carpeta" />,
+    component: <Icon key={24} title="Rufiancitos malos >:(" icon="carpeta" />,
     coords: { x: 1, y: 3 },
   },
   {
     id: 25,
-    component: <Icon key={25} icon="carpeta" />,
+    component: <Icon key={25} title="Nueva carpeta (67)" icon="carpeta" />,
     coords: { x: 10, y: 3 },
   },
   // COLUMNA 4
   {
     id: 26,
-    component: <Icon key={26} icon="carpeta" />,
+    component: (
+      <Icon
+        key={26}
+        title="NOTAS PARA MÍ (no leer si no soy yo)"
+        icon="carpeta"
+      />
+    ),
     coords: { x: 0, y: 4 },
   },
   {
     id: 27,
-    component: <Icon key={27} icon="imagen" />,
+    component: <Icon key={27} title="07101918scan.png" icon="imagen" />,
     coords: { x: 1, y: 4 },
   },
   {
     id: 28,
-    component: <Icon key={28} icon="imagen" />,
+    component: <Icon key={28} title="ssssssssss.jpg" icon="imagen" />,
     coords: { x: 10, y: 4 },
   },
 ];

@@ -104,14 +104,14 @@ const ModalPresentacion = ({ onClose }: IModalProps) => {
 
   const handleTabClick = (index: number) => {
     if (index === 6) {
-      addPopup(PopupsID.ao3);
+      addPopup(PopupsID.ad);
     }
 
     if (index > 5) return;
 
     if (index === 1) {
       addPopup(PopupsID.ao3);
-    } else if (index === 2) {
+    } else if (index === 5) {
       addPopup(PopupsID.otrochat);
     } else if (index === 3) {
       addPopup(PopupsID.meme);
