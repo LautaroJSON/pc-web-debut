@@ -78,25 +78,21 @@ const _POPUPS_: Record<PopupsID, PopupDef> = {
   },
   [PopupsID.ad]: {
     imagen: (
-      <video
-        src="/Secuencia 01_14.mp4"
-        controls
-        preload="metadata"
+      <iframe
+        src="https://drive.google.com/file/d/1uNmVPiyWnzNpxHsCwYQd5-7m5H65u1Uv/preview"
+        width="1280px"
+        height="720px"
+        allowFullScreen
         style={{
-          // position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-          zIndex: 1,
+          border: "none",
+          // zIndex: "-999",
         }}
-      />
+      ></iframe>
     ),
     id: PopupsID.ad,
     size: {
-      height: null,
-      width: null,
+      height: 775,
+      width: 1280,
     },
     initialPosition: {
       x: 0,
