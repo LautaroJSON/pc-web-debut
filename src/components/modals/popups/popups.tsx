@@ -5,6 +5,7 @@ import {
   ModalStyled,
   ModalContainer,
   Header,
+  Troll,
 } from "../styles";
 
 import { GetModalroot } from "../../utils";
@@ -242,6 +243,7 @@ const Popups = () => {
 
             <Content>{_POPUPS_[popups]?.imagen}</Content>
           </ModalContainer>
+          <Troll src="/rodol.png" $hi={shake} />
         </ModalStyled>,
         GetModalroot()!
       )

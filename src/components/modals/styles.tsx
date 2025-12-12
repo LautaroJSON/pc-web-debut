@@ -26,6 +26,32 @@ export const ModalStyled = styled.div<ModalProps>`
   }
 `;
 
+export const Troll = styled.img<{ $hi: boolean }>`
+  position: fixed;
+  top: -30px;
+  left: -55px;
+  z-index: 3;
+  width: 200px;
+
+  display: none;
+
+  ${(p) => p.$hi && `animation: hi 0.3s ease-in-out; display: block;`}
+
+  @keyframes hi {
+    0% {
+      transform: translate(0, 0) rotate(120deg);
+    }
+
+    50% {
+      transform: translate(-6px, 0) rotate(100deg);
+    }
+
+    100% {
+      transform: translate(0, 0) rotate(120deg);
+    }
+  }
+`;
+
 export const ModalContainer = styled.div<{
   $width?: number;
   $height?: number;
